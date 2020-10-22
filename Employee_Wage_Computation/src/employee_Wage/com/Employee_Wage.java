@@ -34,8 +34,9 @@ public class Employee_Wage {
 			Days++;
 			Daily_Wage = Wage_Per_Hour * Hours;
 			Total_Wages = Total_Wages + Daily_Wage;
-			System.out.println("Employee Earn Daily Wage  :-" + Daily_Wage);
-			System.out.println("Employee Earn Total Wages is :-" + Total_Wages);
 		}
+		System.out.println("Total Employee Days Is :-"+Days);
+		System.out.println("Employee Earn Daily Wage  :-" + Daily_Wage);
+		System.out.println("Employee Earn Total Wages is :-" + Total_Wages);
 	}
 }
