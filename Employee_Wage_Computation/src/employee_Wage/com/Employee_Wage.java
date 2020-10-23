@@ -1,5 +1,6 @@
 package employee_Wage.com;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Employee_Wage {
@@ -7,8 +8,9 @@ public class Employee_Wage {
 	public static int Total_Wages = 0;
 	public static int Daily_Wage = 0;
 	public static int Days = 0;
+	public static int Total_Array_Wage = 0;
 
-	public static void Company(String Company, int Total_Working_Day, int Total_Hours, int Wage_Per_Hour) {
+	public static int Company(String Company, int Total_Working_Day, int Total_Hours, int Wage_Per_Hour) {
 		int Days = 0;
 		while (Days <= Total_Working_Day && Hours <= Total_Hours) {
 
@@ -33,9 +35,9 @@ public class Employee_Wage {
 			System.out.println("Total Employee Days Is :-" + Days);
 			System.out.println("Employee Earn Daily Wage  :-" + Daily_Wage);
 			Total_Wages = Total_Wages + Daily_Wage;
-			System.out.println("Total Wage Per Employee :- " + Total_Wages);
 
 		}
+		return Total_Wages;
 
 	}
 
@@ -50,20 +52,29 @@ public class Employee_Wage {
 		int exit = 0;
 		while (exit == 0) {
 			System.out.println("Enter your choice");
-			System.out.println("1.\t EXIT\t 2.\t calculate Employee Wage");
+			System.out.println("1. calculate Employee Wage \n 2.exit");
 			int choice1 = sc.nextInt();
 			if (choice1 == 1) {
-				exit = 1;
-			} else {
+				ArrayList company = new ArrayList();
 				System.out.println("Enter company name");
 				companyName = sc.next();
+				company.add(companyName);
 				System.out.println("Enter Working days in a month");
 				int Total_Working_Day = sc.nextInt();
+				company.add(Total_Working_Day);
 				System.out.println("Enter Working hours in a month");
 				int Total_Hours = sc.nextInt();
+				company.add(Total_Hours);
 				System.out.println("Enter emp wage per hour");
 				int Wage_Per_Hour = sc.nextInt();
-				Company(companyName, Total_Working_Day, Total_Hours, Wage_Per_Hour);
+				company.add(Wage_Per_Hour);
+				System.out.println("Total Employee Wage Per Month Is :-" + Company(companyName, Wage_Per_Hour, Wage_Per_Hour, Wage_Per_Hour));
+                int Total_Array_Wage = Total_Wages;
+                company.add(Total_Array_Wage );
+				System.out.println(companyName + " Company Employee details IS :-" + company);
+
+			} else {
+				System.out.println("not acceptable");
 			}
 		}
 		sc.close();
