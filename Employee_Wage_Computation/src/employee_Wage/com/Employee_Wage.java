@@ -1,17 +1,12 @@
 package employee_Wage.com;
 
 public class Employee_Wage {
-
 	public static int Hours = 0;
-	public static int Total_Working_Day = 20;
-	public static int Total_Hours = 100;
-	public static int Wage_Per_Hour = 20;
 	public static int Total_Wages = 0;
 	public static int Daily_Wage = 0;
 	public static int Days = 0;
 
-	static int MyMethod() {
-
+	public static int Company(String Company, int Total_Working_Day, int Total_Hours, int Wage_Per_Hour) {
 		int Days = 0;
 		while (Days <= Total_Working_Day && Hours <= Total_Hours) {
 
@@ -46,7 +41,30 @@ public class Employee_Wage {
 		// TODO Auto-generated method stub
 
 		System.out.println("***************Welcome To Employee Wage Computation*****************");
-		int TotalWage = MyMethod();
-		System.out.println("Employee Earn Total Wages is :-" + TotalWage);
+
+		int CompanyCheck = (int) (Math.floor(Math.random() * 10) % 3 + 1);
+		System.out.println(CompanyCheck);
+
+		switch (CompanyCheck) {
+		case 1:
+			int Infosys = Company("Infosys", 20, 100, 30);
+			System.out.println("Employee Earn Total Wages in Infosys Company Is :-" + Infosys);
+			break;
+		case 2:
+			int TechMahindra = Company("TechMahindra", 25, 60, 40);
+			System.out.println("Employee Earn Total Wages in TechMahindra Company Is :-" + TechMahindra);
+			break;
+
+		case 3:
+			int Eton = Company("TechMahindra", 28, 80, 60);
+			System.out.println("Employee Earn Total Wages in Eton Company Is :-" + Eton);
+			break;
+
+		default:
+			System.out.println("No Company Is their");
+			break;
+
+		}
+
 	}
 }
