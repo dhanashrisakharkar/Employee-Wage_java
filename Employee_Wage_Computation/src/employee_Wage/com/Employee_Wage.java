@@ -32,9 +32,11 @@ public class Employee_Wage {
 			 					 break;
 			 default : empHours=0;
 			}
-			totalEmpHours+=empHours;	
+			totalEmpHours+=empHours;
+			//System.out.println("Day :"+totalWorkingDays+"Emp Hours :"+empHours);
+			
 		}
-		
+		//System.out.println("Total Employee work Hours :"+totalEmpHours);
 		totalEmpWages=totalEmpHours*RATE_PER_HOUR;
 	}
 	
@@ -44,8 +46,8 @@ public class Employee_Wage {
 	}
 	public static void main(String[] args) {
 		System.out.println("========Welcome to Employee Wage Computation========");
-		Employee_Wage fab=new Employee_Wage("Dell",20,20,100);
-		Employee_Wage app=new Employee_Wage("Amazon",35,10,100);
+		Employee_Wage fab=new Employee_Wage("TCS",20,20,100);
+		Employee_Wage app=new Employee_Wage("Semienc",35,10,100);
 		fab.Calculation();
 		System.out.println(fab);
 		app.Calculation();
