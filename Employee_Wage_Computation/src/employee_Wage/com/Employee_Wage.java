@@ -1,56 +1,82 @@
 package employee_Wage.com;
 
+import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.*;
-import java.io.*;
 
 public class Employee_Wage {
-	public static final int IS_FULL_TIME=1;
-	public static final int IS_PART_TIME=2;
-	private final String company;
-	private final int RATE_PER_HOUR;
-	private final int workingDays;
-	private final int maxHours;
-	private int totalEmpWages; 
-	
-	public Employee_Wage(String company,int RATE_PER_HOUR,int workingDays,int maxHours) {
-		this.company=company;
-		this.RATE_PER_HOUR=RATE_PER_HOUR;
-		this.workingDays=workingDays;
-		this.maxHours=maxHours;
-		}
-	public void Calculation() {
-		int empHours=0,totalEmpHours=0,totalWorkingDays=0;
-		
-		while(totalEmpHours<=maxHours && totalWorkingDays<workingDays) {
-			totalWorkingDays++;
-			int check=(int) (Math.floor(Math.random()*10)%3);
-			switch(check) {
-			 case IS_FULL_TIME : empHours=8;
-			 					 break;
-			 case IS_PART_TIME : empHours=4;
-			 					 break;
-			 default : empHours=0;
+	public static int Hours = 0;
+	public static int Total_Wages = 0;
+	public static int Daily_Wage = 0;
+	public static int Days = 0;
+	public static int Total_Array_Wage = 0;
+
+	public static int Company(String Company, int Total_Working_Day, int Total_Hours, int Wage_Per_Hour) {
+		int Days = 0;
+		while (Days <= Total_Working_Day && Hours <= Total_Hours) {
+
+			int empCheck = (int) (Math.floor(Math.random() * 10) % 3);
+			System.out.println(empCheck);
+
+			switch (empCheck) {
+			case 1:
+				System.out.println("Employee is present");
+				Hours = 8;
+				break;
+			case 2:
+				System.out.println("Employee is Present");
+				Hours = 4;
+				break;
+			default:
+				System.out.println("Employee Is Absent");
+				break;
 			}
-			totalEmpHours+=empHours;
-			//System.out.println("Day :"+totalWorkingDays+"Emp Hours :"+empHours);
-			
+			Days++;
+			Daily_Wage = Wage_Per_Hour * Hours;
+			System.out.println("Total Employee Days Is :-" + Days);
+			System.out.println("Employee Earn Daily Wage  :-" + Daily_Wage);
+			Total_Wages = Total_Wages + Daily_Wage;
+
 		}
-		//System.out.println("Total Employee work Hours :"+totalEmpHours);
-		totalEmpWages=totalEmpHours*RATE_PER_HOUR;
+		return Total_Wages;
+
 	}
-	
-	@Override
-	public String toString() {
-		return "Total Emp Wage for Company :"+company+"is:"+totalEmpWages;
-	}
+
 	public static void main(String[] args) {
-		System.out.println("========Welcome to Employee Wage Computation========");
-		Employee_Wage fab=new Employee_Wage("TCS",20,20,100);
-		Employee_Wage app=new Employee_Wage("Semienc",35,10,100);
-		fab.Calculation();
-		System.out.println(fab);
-		app.Calculation();
-		System.out.println(app);
-	 }
+		// TODO Auto-generated method stub
+
+		System.out.println("***************Welcome To Employee Wage Computation*****************");
+
+		Scanner sc = new Scanner(System.in);
+		String companyName = null;
+
+		int exit = 0;
+		while (exit == 0) {
+			System.out.println("Enter your choice");
+			System.out.println("1. calculate Employee Wage \n 2.exit");
+			int choice1 = sc.nextInt();
+			if (choice1 == 1) {
+				ArrayList company = new ArrayList();
+				System.out.println("Enter company name");
+				companyName = sc.next();
+				company.add(companyName);
+				System.out.println("Enter Working days in a month");
+				int Total_Working_Day = sc.nextInt();
+				company.add(Total_Working_Day);
+				System.out.println("Enter Working hours in a month");
+				int Total_Hours = sc.nextInt();
+				company.add(Total_Hours);
+				System.out.println("Enter emp wage per hour");
+				int Wage_Per_Hour = sc.nextInt();
+				company.add(Wage_Per_Hour);
+				System.out.println("Total Employee Wage Per Month Is :-" + Company(companyName, Wage_Per_Hour, Wage_Per_Hour, Wage_Per_Hour));
+                int Total_Array_Wage = Total_Wages;
+                company.add(Total_Array_Wage );
+				System.out.println(companyName + " Company Employee details IS :-" + company);
+
+			} else {
+				System.out.println("not acceptable");
+			}
+		}
+		sc.close();
+	}
 }
